@@ -1,7 +1,7 @@
 // constant
 const ENDPOINT = "https://dongtrunghathaocom-production.up.railway.app";
 // const ENDPOINT = "http://10.2.22.124:3000";
-const CLIENT = location.origin;
+const CLIENT = "https://jsc2017605097.github.io/blog";
 const TOKEN_KEY = "token";
 const LIMIT = 10;
 
