@@ -51,7 +51,7 @@ $(document).ready(function () {
             }</td>
             <td><a href=${CLIENT}/admin/category/detail.html?id=${
         c._id
-      }><img src='../../../admin/img/action.svg' /></a></td>
+      }><img src='https://jsc2017605097.github.io/blog/admin/img/action.svg' /></a></td>
         </tr>`;
     });
     html += `</tbody>`;

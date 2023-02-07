@@ -68,7 +68,7 @@ function generateBlogList(offset, selectCategory, keyword) {
       }</div></td>
               <td><a href=${CLIENT}/admin/blog/detail.html?id=${
         blog._id
-      }><img src='../../../admin/img/action.svg' /></a></td>
+      }><img src='https://jsc2017605097.github.io/blog/admin/img/action.svg' /></a></td>
           </tr>`;
     });
     html += `</tbody>`;
