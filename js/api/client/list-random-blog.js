@@ -47,8 +47,14 @@ $(document).ready(function () {
     <div class="col-12">
          <div class="world-catagory-slider2 owl-carousel wow fadeInUpBig" data-wow-delay="0.4s">
             <!-- ========= Single Catagory Slide ========= -->`;
-    const data2 = response.data.slice(2, 12);
-    for (let i = 0; i < data2.length; i = i + 4) {
+    let data2 = response.data.slice(2, 12);
+    data2 = data2.concat(data2);
+    data2 = data2.concat(data2);
+    data2 = data2.concat(data2);
+    data2 = data2.concat(data2);
+    data2 = data2.concat(data2);
+
+    for (let i = 0; i < 8; i = i + 4) {
       html += `
         <div class="single-cata-slide">
             <div class="row">
@@ -66,7 +72,8 @@ $(document).ready(function () {
 });
 
 function generateRandomBlog(blog) {
-  return `
+  return blog
+    ? `
     <div class="col-12 col-md-6">
         <!-- Single Blog Post -->
         <div class="single-blog-post post-style-2 d-flex align-items-center mb-1">
@@ -89,5 +96,14 @@ function generateRandomBlog(blog) {
                 </div>
             </div>
         </div>
-    </div>`;
+    </div>`
+    : "";
+}
+
+function checkData(data) {
+  if (data.length < 14) {
+    data = data.concat(data);
+    checkData(data);
+  }
+  return data;
 }

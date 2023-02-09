@@ -14,6 +14,8 @@ $(document).ready(function () {
   };
 
   $.ajax(settings).done(function (response) {
+    if (response.data.result.length === 1)
+      response.data.result = response.data.result.concat(response.data.result);
     const data = response.data.result.slice(0, 5).map((blog) => {
       return `
       <div class="single-blog-post" style="margin-left:10px;margin-right:10px">
