@@ -16,6 +16,21 @@ $(document).ready(function () {
   $.ajax(settings).done(function (response) {
     if (response.data.result.length === 1)
       response.data.result = response.data.result.concat(response.data.result);
+
+    const bannerBlog = response.data.result.slice(0, 4).map((blog, index) => {
+      return `
+      <!-- Single Slide -->
+        <div class="single-slide d-flex align-items-center">
+            <div class="post-number">
+                <p>${index + 1}</p>
+            </div>
+            <div class="post-title">
+                <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}">${blog.title}</a>
+            </div>
+      </div>`
+    });
+    $("#banner-news").html(bannerBlog.join(""));
+
     const data = response.data.result.slice(0, 5).map((blog) => {
       return `
       <div class="single-blog-post" style="margin-left:10px;margin-right:10px">
@@ -23,20 +38,19 @@ $(document).ready(function () {
             <div class="post-thumbnail">
                 <img src=${blog.blogPhotoUrl} alt="">
                 <!-- Catagory -->
-                <div class="post-cta"><a href="#">${
-                  blog.categoryId.name
-                }</a></div>
+                <div class="post-cta"><a href="#">${blog.categoryId.name
+        }</a></div>
             </div>
             <!-- Post Content -->
             <div class="post-content">
-                <a href="#" class="headline">
+                <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}" class="headline">
                     <h5>${blog.title}</h5>
                 </a>
                 <!-- Post Meta -->
                 <div class="post-meta">
-                    <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">${moment(
-                      blog.createdAt
-                    ).format("YYYY-MM-DD HH:mm:ss")}</a></p>
+                    <p><a href="#" class="post-author">${blog.createdBy.nickname}</a> on <a href="#" class="post-date">${moment(
+          blog.createdAt
+        ).format("YYYY-MM-DD HH:mm:ss")}</a></p>
                 </div>
             </div>
         </div>`;
@@ -44,25 +58,26 @@ $(document).ready(function () {
     let html = data.join("");
     $("#new-1").html(html);
 
-    const data2 = response.data.result.slice(5, 9).map((blog) => {
+    let data2Array = response.data.result.slice(5, 9);
+    if (data2Array.length === 0) data2Array = response.data.result.slice(0, 5)
+    const data2 = data2Array.map((blog) => {
       return `
         <div class="single-blog-post post-style-2 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
             <!-- Post Thumbnail -->
             <div class="post-thumbnail">
-                <img style="height:95px; width:95px" src=${
-                  blog.blogPhotoUrl
-                } alt="">
+                <img style="height:95px; width:95px" src=${blog.blogPhotoUrl
+        } alt="">
             </div>
             <!-- Post Content -->
             <div class="post-content">
-                <a href="#" class="headline">
+                <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}" class="headline">
                     <h5>${blog.title}</h5>
                 </a>
                 <!-- Post Meta -->
                 <div class="post-meta">
-                    <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">${moment(
-                      blog.createdAt
-                    ).format("YYYY-MM-DD HH:mm:ss")}</a></p>
+                    <p><a href="#" class="post-author">${blog.createdBy.nickname}</a> on <a href="#" class="post-date">${moment(
+          blog.createdAt
+        ).format("YYYY-MM-DD HH:mm:ss")}</a></p>
                 </div>
             </div>
         </div>`;

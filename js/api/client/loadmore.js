@@ -40,12 +40,12 @@ function loadmoreFunc() {
                 </div>
                 <!-- Post Content -->
                 <div class="post-content">
-                    <a href="#" class="headline">
+                    <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}" class="headline">
                         <h5>${blog.title}</h5>
                     </a>
                     <!-- Post Meta -->
                     <div class="post-meta">
-                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">${moment(
+                        <p><a href="#" class="post-author">${blog.createdBy.nickname}</a> on <a href="#" class="post-date">${moment(
                           blog.createdAt
                         ).format("YYYY-MM-DD HH:mm:ss")}</a></p>
                     </div>
