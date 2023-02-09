@@ -28,7 +28,7 @@ function loadmoreFunc() {
   $.ajax(settings).done(function (response) {
     let html = `
             <div class="title">
-               <h5>Latest Articles</h5>
+               <h5>Bài đăng mới nhất</h5>
             </div>
         `;
     const data = response.data.result.map((blog) => {

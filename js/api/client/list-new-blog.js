@@ -17,6 +17,23 @@ $(document).ready(function () {
     if (response.data.result.length === 1)
       response.data.result = response.data.result.concat(response.data.result);
 
+    const todayPick = response.data.result.slice(0, 1).map(blog => {
+      return `
+      <div class="single-blog-post todays-pick">
+        <!-- Post Thumbnail -->
+        <div class="post-thumbnail">
+            <img src=${blog.blogPhotoUrl} alt="">
+        </div>
+        <!-- Post Content -->
+        <div class="post-content px-0 pb-0">
+            <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}" class="headline">
+                <h5>${blog.title}</h5>
+            </a>
+        </div>
+      </div>`
+    });
+    $("#todayPick").html(todayPick.join(""));
+
     const bannerBlog = response.data.result.slice(0, 4).map((blog, index) => {
       return `
       <!-- Single Slide -->
