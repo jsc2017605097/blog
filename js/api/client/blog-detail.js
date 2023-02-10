@@ -3,7 +3,7 @@ const ENDPOINT = "https://dongtrunghathaocom-production.up.railway.app";
 $(document).ready(function () {
     var _id = getUrlParameter("id");
     var settings = {
-        url: `${ENDPOINT}/blog/${_id}`,
+        url: `${ENDPOINT}/blog/${_id}?viewer=client`,
         method: "GET",
         timeout: 0,
         headers: {

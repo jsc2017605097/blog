@@ -26,7 +26,7 @@ $(document).ready(function () {
         </div>
         <!-- Post Content -->
         <div class="post-content px-0 pb-0">
-            <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}" class="headline">
+            <a href="single-blog.html?id=${blog._id}" class="headline">
                 <h5>${blog.title}</h5>
             </a>
         </div>
@@ -42,7 +42,7 @@ $(document).ready(function () {
                 <p>${index + 1}</p>
             </div>
             <div class="post-title">
-                <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}">${blog.title}</a>
+                <a href="single-blog.html?id=${blog._id}">${blog.title}</a>
             </div>
       </div>`
     });
