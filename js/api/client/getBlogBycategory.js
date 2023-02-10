@@ -1,7 +1,7 @@
 const ENDPOINT = "https://dongtrunghathaocom-production.up.railway.app";
-let loadmore = 10;
+let loadmore = 5;
 $(document).ready(function () {
-  loadmore = 10;
+  loadmore = 5;
   loadmoreFunc();
 });
 
@@ -27,7 +27,13 @@ function loadmoreFunc() {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response.data);
+    if(keyword){
+        let html3 = `<div><b class="title">Tìm kiếm</b>: ${keyword}</div>`;
+        $("#category-search").html(html3);
+    }else{
+        let html3 = `<div><b>Danh mục</b>: ${response.data.result[0].categoryId.name}</div>`;
+        $("#category-search").html(html3);
+    }
     const data = response.data.result.map((blog) => {
       return `
             <div class="single-blog-post post-style-10 d-flex align-items-center">
@@ -59,7 +65,7 @@ function loadmoreFunc() {
 
 $(function () {
   $("#loadmoreBtn").click(function () {
-    loadmore += 10;
+    loadmore += 5;
     loadmoreFunc();
   });
 });
