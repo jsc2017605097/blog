@@ -94,7 +94,9 @@ $(function () {
     const title = $("#title").val();
     const categoryId = $("#categoryId").val();
     const content = CKEDITOR.instances.content.getData();
-    var body = { blogPhotoUrl, title, content, categoryId };
+    const isDisplayAtBanner = $("#isDisplayAtBanner").is(":checked");
+
+    var body = { blogPhotoUrl, title, content, categoryId,isDisplayAtBanner };
     var settings = {
       url: `${ENDPOINT}/blog/${_id}`,
       method: "PATCH",

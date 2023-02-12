@@ -1,6 +1,6 @@
 // constant
 const ENDPOINT = "https://dongtrunghathaocom-production.up.railway.app";
-// const ENDPOINT = "http://10.2.22.124:3000";
+// const ENDPOINT = "http://localhost:3000";
 const CLIENT = "https://jsc2017605097.github.io/blog";
 const TOKEN_KEY = "token";
 const LIMIT = 10;
