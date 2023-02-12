@@ -25,6 +25,7 @@ $(document).ready(function () {
 
     CKEDITOR.instances.content.setData(response.data.content);
     getCategory(response.data.categoryId._id);
+    $("#isDisplayAtBanner").prop("checked",response.data.isDisplayAtBanner);
   });
 });
 
