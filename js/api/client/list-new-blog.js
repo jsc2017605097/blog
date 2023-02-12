@@ -87,13 +87,13 @@ $(document).ready(function () {
     });
     let html2 = data2.join("");
     $("#new-2").html(html2);
-
     var script = document.createElement("script");
     script.src = "js/plugins.js";
     var script2 = document.createElement("script");
     script2.src = "js/active.js";
     document.head.appendChild(script);
     document.head.appendChild(script2);
+
   });
   var settings2 = {
     url: `${ENDPOINT}/blog?isDisplayAtBanner=true`,
