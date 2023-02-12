@@ -33,21 +33,7 @@ $(document).ready(function () {
       </div>`
     });
     $("#todayPick").html(todayPick.join(""));
-
-    const bannerBlog = response.data.result.slice(0, 4).map((blog, index) => {
-      return `
-      <!-- Single Slide -->
-        <div class="single-slide d-flex align-items-center">
-            <div class="post-number">
-                <p>${index + 1}</p>
-            </div>
-            <div class="post-title">
-                <a href="single-blog.html?id=${blog._id}">${blog.title}</a>
-            </div>
-      </div>`
-    });
-    $("#banner-news").html(bannerBlog.join(""));
-
+    
     const data = response.data.result.slice(0, 5).map((blog) => {
       return `
       <div class="single-blog-post" style="margin-left:10px;margin-right:10px">
@@ -109,4 +95,33 @@ $(document).ready(function () {
     document.head.appendChild(script);
     document.head.appendChild(script2);
   });
+  var settings2 = {
+    url: `${ENDPOINT}/blog?isDisplayAtBanner=true`,
+    method: "GET",
+    timeout: 0,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+    error: function (e) {
+      console.log(e.responseJSON.message);
+    },
+  };
+
+  $.ajax(settings2).done(function (response) {
+    const bannerBlog = response.data.result.map((blog, index) => {
+      return `
+      <!-- Single Slide -->
+        <div class="single-slide d-flex align-items-center">
+            <div class="post-number">
+                <p>${index + 1}</p>
+            </div>
+            <div class="post-title">
+                <a href="single-blog.html?id=${blog._id}">${blog.title}</a>
+            </div>
+      </div>`
+    });
+    $("#banner-news").html(bannerBlog.join(""));
+
+  })
 });
