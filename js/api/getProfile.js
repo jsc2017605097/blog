@@ -47,6 +47,9 @@ $(function () {
   $("#openBlog").click(function () {
     window.location.replace(`${CLIENT}/admin/blog/list.html`);
   });
+  $("#openBanner").click(function () {
+    window.location.replace(`${CLIENT}/admin/banner/list.html`);
+  });
   $("#openChangePassword").click(function () {
     window.location.replace(`${CLIENT}/admin/account/change-password.html`);
   });
