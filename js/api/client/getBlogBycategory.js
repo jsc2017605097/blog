@@ -1,4 +1,4 @@
-const ENDPOINT = "https://dongtrunghathaocom-production.up.railway.app";
+// const ENDPOINT = "https://dongtrunghathaocom-production.up.railway.app";
 let loadmore = 5;
 $(document).ready(function () {
   loadmore = 5;

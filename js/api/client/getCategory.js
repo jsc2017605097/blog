@@ -21,6 +21,12 @@ $(document).ready(function () {
     const data2 = response.data.map((c) => {
       return `<a class="dropdown-item" href="https://jsc2017605097.github.io/blog/catagory.html?id=${c._id}">${c.name}</a>`;
     });
+    const data3 = response.data.map((c) => {
+      return `<li><a href="https://jsc2017605097.github.io/blog/catagory.html?id=${c._id}">${c.name}</a></li>`;
+    });
+    const html3 =  `<li><a href="https://jsc2017605097.github.io/blog/">Trang chủ</a></li>` + data3.join("");
+    $("#footer-category").html(html3);
+
     $("#nav-category").html(data2);
 
     const data = response.data.map((category) => {

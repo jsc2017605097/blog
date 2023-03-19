@@ -31,7 +31,6 @@ $(document).ready(function () {
                     <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${blog._id}" class="headline">
                         <h5>${blog.title}</h5>
                     </a>
-                    <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p>
                     <!-- Post Meta -->
                     <div class="post-meta">
                         <p><a href="" class="post-author">${blog.createdBy.nickname}</a> on <a href="#" class="post-date">${moment(
