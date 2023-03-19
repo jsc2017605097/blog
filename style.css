@@ -484,6 +484,9 @@ img {
   .hero-area .hero-slides .single-hero-slide {
     height: 480px;
   }
+  #bg-blog-detail{
+    height: 500px !important;
+  }
 }
 @media only screen and (max-width: 1290px) {
   .hero-area .hero-slides .single-hero-slide  {
