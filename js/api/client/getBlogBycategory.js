@@ -27,25 +27,32 @@ function loadmoreFunc() {
   };
 
   $.ajax(settings).done(function (response) {
-    if(keyword){
-        let html3 = `<div><b class="title">Tìm kiếm</b>: ${keyword}</div>`;
-        $("#category-search").html(html3);
-    }else{
-        let html3 = `<div><b>Danh mục</b>: ${response.data.result[0].categoryId.name}</div>`;
-        $("#category-search").html(html3);
+    if (keyword) {
+      let html3 = `<div><b class="title">Tìm kiếm</b>: ${keyword}</div>`;
+      $("#category-search").html(html3);
+    } else {
+      let html3 = `<div><b>Danh mục</b>: ${response.data.result[0].categoryId.name}</div>`;
+      $("#category-search").html(html3);
     }
     const data = response.data.result.map((blog) => {
       return `
             <div class="single-blog-post post-style-10 d-flex align-items-center">
                 <!-- Post Thumbnail -->
                 <div class="post-thumbnail">
-                    <img src=${blog.blogPhotoUrl} alt="">
+                <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${
+                  blog._id
+                }" class="headline">
+                      <img style="width:150px;max-width:none" src=${
+                        blog.blogPhotoUrl
+                      } alt="">
+                    </a>
+                    
                 </div>
                 <!-- Post Content -->
                 <div class="post-content">
                     <a href="https://jsc2017605097.github.io/blog/single-blog.html?id=${
-                        blog._id
-                      }" class="headline">
+                      blog._id
+                    }" class="headline">
                         <h5>${blog.title}</h5>
                     </a>
                     <!-- Post Meta -->
